@@ -6,7 +6,7 @@ const doc = {
     description: "API for Access Logs Management",
   },
   host: "cse341-ic-project2.onrender.com/",
-  schemes: ["http"],
+  schemes: ["https"],
 };
 
 const outputFile = "./swagger-output.json";
