@@ -5,7 +5,7 @@
     "description": "API for Access Logs Management",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://cse341-ic-project2.onrender.com/",
   "basePath": "/",
   "schemes": [
     "http"
@@ -104,6 +104,9 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -189,6 +192,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
@@ -279,6 +285,9 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -361,6 +370,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "404": {
             "description": "Not Found"
