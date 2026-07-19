@@ -5,7 +5,7 @@ const doc = {
     title: "CSE341 Project 2 API",
     description: "API for Access Logs Management",
   },
-  host: "https://cse341-ic-project2.onrender.com/",
+  host: "cse341-ic-project2.onrender.com/",
   schemes: ["http"],
 };
 
