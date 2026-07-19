@@ -1,0 +1,114 @@
+###----------------------------###
+###-----EMPLOYEE API TESTS-----###
+###----------------------------###
+
+### Get all employees
+GET http://localhost:8080/employees
+
+### Get employee by ID
+GET http://localhost:8080/employees/6a5ba7060e058dd87c0a7215
+
+
+### Create employee
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "employeeId": "EMP011",
+  "rfidTag": "RFID0011",
+  "firstName": "Ivan",
+  "lastName": "Chulde",
+  "department": "Technology",
+  "position": "Support Technician",
+  "email": "ivan.chulde@example.com",
+  "phone": "0991234567",
+  "status": "Active",
+  "hireDate": "2026-07-18"
+}
+
+### Update employee
+PUT http://localhost:8080/employees/6a5c3c67ada37a9f118b02e3
+Content-Type: application/json
+
+{
+  "employeeId": "EMP011",
+  "rfidTag": "RFID0011",
+  "firstName": "Carlos TEST",
+  "lastName": "Lopez",
+  "department": "Operations",
+  "position": "Senior Technician",
+  "email": "carlos.lopez@example.com",
+  "phone": "0991234567",
+  "status": "Active",
+  "hireDate": "2026-07-18"
+}
+
+### Delete employee
+DELETE http://localhost:8080/employees/6a5c3c00ada37a9f118b02e2
+
+### Invalid employee
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "employeeId": "EMP999"
+}
+
+### Invalid employee update
+PUT http://localhost:8080/employees/6a5c3c67ada37a9f118b02e3
+Content-Type: application/json
+
+{
+  "employeeId": "EMP011"
+}
+
+###----------------------------###
+###-----ACCESS LOG API TESTS-----###
+###----------------------------###
+
+### Get all access logs
+GET http://localhost:8080/accesslogs
+
+### Get access log by ID
+GET http://localhost:8080/accesslogs/6a5ba7060e058dd87c0a7233
+
+### Create access log
+POST http://localhost:8080/accesslogs
+Content-Type: application/json
+
+{
+    "employeeId":"EMP001",
+    "rfidTag":"RFID0001",
+    "employeeName":"John Smith",
+    "accessDate":"2026-07-18",
+    "entryTime":"08:00",
+    "exitTime":"17:00",
+    "accessPoint":"Main Entrance",
+    "accessType":"Entry",
+    "result":"Granted"
+}
+#### Update access log
+PUT http://localhost:8080/accesslogs/6a5c3cfcada37a9f118b02e4
+Content-Type: application/json
+
+{
+    "employeeId":"EMP001",
+    "rfidTag":"RFID0001",
+    "employeeName":"John Smith",
+    "accessDate":"2026-07-20",
+    "entryTime":"08:05",
+    "exitTime":"17:10",
+    "accessPoint":"Parking Gate",
+    "accessType":"Entry",
+    "result":"Granted"
+}
+### Delete access log
+DELETE http://localhost:8080/accesslogs/6a5c3cfcada37a9f118b02e4
+
+### Invalid access log update
+PUT http://localhost:8080/accesslogs/6a5c3cfcada37a9f118b02e4
+Content-Type: application/json
+
+{
+    "employeeId":"EMP001"
+}

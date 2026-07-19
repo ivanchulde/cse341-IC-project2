@@ -1,3 +1,5 @@
+// Seed script for MongoDB database
+// This script will populate the database with initial data for employees and access logs.
 require("dotenv").config();
 const { MongoClient } = require("mongodb");
 
