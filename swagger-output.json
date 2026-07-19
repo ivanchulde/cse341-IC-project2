@@ -5,7 +5,7 @@
     "description": "API for Access Logs Management",
     "version": "1.0.0"
   },
-  "host": "cse341-ic-project2.onrender.com/",
+  "host": "cse341-ic-project2.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
