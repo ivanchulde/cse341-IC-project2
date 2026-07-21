@@ -18,12 +18,15 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: {
+        secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+    },
   })
 );
 
