@@ -3,6 +3,7 @@ const router = require("express").Router();
 const accessLogsController = require("../controllers/accessLogs");
 const validateAccessLog = require("../middleware/validateAccessLog");
 const validateObjectId = require("../middleware/validateObjectId");
+const { isAuthenticated } = require("../middleware/authenticate");
 
 
 // GET ALL ACCESS LOGS
@@ -38,7 +39,7 @@ router.get("/:id", validateObjectId, accessLogsController.getSingle);
 //   }
 // }
 router.post(
-    "/",
+    "/",isAuthenticated,
     validateAccessLog,
     accessLogsController.createLog
 );
@@ -64,7 +65,7 @@ router.post(
 //      ipAddress: "192.168.1.10"
 //   }
 // }
-router.put("/:id", validateObjectId, validateAccessLog, accessLogsController.updateLog
+router.put("/:id", isAuthenticated, validateObjectId, validateAccessLog, accessLogsController.updateLog
 );
 
 
@@ -77,7 +78,7 @@ router.put("/:id", validateObjectId, validateAccessLog, accessLogsController.upd
 //   required: true,
 //   type: 'string'
 // }
-router.delete("/:id", validateObjectId, accessLogsController.deleteLog);
+router.delete("/:id", isAuthenticated, validateObjectId, accessLogsController.deleteLog);
 
 
 module.exports = router;

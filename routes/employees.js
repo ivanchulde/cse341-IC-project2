@@ -3,6 +3,7 @@ const router = require("express").Router();
 const employeeController = require("../controllers/employees");
 const validateEmployee = require("../middleware/validateEmployee");
 const validateObjectId = require("../middleware/validateObjectId");
+const { isAuthenticated } = require("../middleware/authenticate.js");
 
 /**
  * @swagger
@@ -43,7 +44,7 @@ router.get("/:id", validateObjectId, employeeController.getSingle);
 //      position: "Developer"
 //   }
 // }
-router.post("/", validateEmployee, employeeController.createEmployee);
+router.post("/", isAuthenticated ,validateEmployee, employeeController.createEmployee);
 
 
 // UPDATE EMPLOYEE
@@ -66,7 +67,7 @@ router.post("/", validateEmployee, employeeController.createEmployee);
 //      position: "Manager"
 //   }
 // }
-router.put("/:id", validateObjectId, validateEmployee, employeeController.updateEmployee);
+router.put("/:id", isAuthenticated, validateObjectId, validateEmployee, employeeController.updateEmployee);
 
 
 // DELETE EMPLOYEE
@@ -78,7 +79,7 @@ router.put("/:id", validateObjectId, validateEmployee, employeeController.update
 //   required: true,
 //   type: 'string'
 // }
-router.delete("/:id", validateObjectId, employeeController.deleteEmployee);
+router.delete("/:id", isAuthenticated, validateObjectId, employeeController.deleteEmployee);
 
 
 module.exports = router;

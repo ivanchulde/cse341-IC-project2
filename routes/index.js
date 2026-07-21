@@ -2,9 +2,11 @@ const router = require("express").Router();
 
 const employeeRoutes = require("./employees");
 const accessLogRouters = require("./accessLogs");
+const authRoutes = require("./auth");
 
 router.use("/employees", employeeRoutes);
 router.use("/accesslogs", accessLogRouters);
+router.use("/auth", authRoutes);
 
 router.get("/", (req, res) => {
   res.send(`
